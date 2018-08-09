@@ -21,6 +21,18 @@
 	<put-attribute name="body" value="/WEB-INF/jsp/login.jsp"></put-attribute>	 
 </definition>
 
+<definition name="logout" extends="base.eCustomerService.definition">
+	<put-attribute name="title" value="Login Customer Service Tracking System"></put-attribute>
+	<put-attribute name="menu" value="/WEB-INF/jsp/navigation/mainmenu.jsp"></put-attribute>
+	<put-attribute name="body" value="/WEB-INF/jsp/logout.jsp"></put-attribute>	 
+</definition>
+
+<definition name="accessdenied" extends="base.eCustomerService.definition">
+	<put-attribute name="title" value="Access Denied Customer Service Tracking System"></put-attribute>
+	<put-attribute name="menu" value="/WEB-INF/jsp/navigation/mainmenu.jsp"></put-attribute>
+	<put-attribute name="body" value="/WEB-INF/jsp/accessdenied.jsp"></put-attribute>	 
+</definition>
+
 <definition name="welcome" extends="base.eCustomerService.definition">
 	<put-attribute name="title" value="Login Customer Service Tracking System"></put-attribute>
 	<put-attribute name="menu" value="/WEB-INF/jsp/navigation/menu.jsp"></put-attribute>

@@ -1,8 +1,7 @@
  
 <h2>Please enter your user id and password to sign in.</h2>
 
-<form name='f' action="<c:url value='j_spring_security_check' />"
-  method='POST'>
+<form action="<c:url value='/j_spring_security_check'/>" method="post">				
  
   <table>
    <tr>
