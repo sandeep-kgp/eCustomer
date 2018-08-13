@@ -8,16 +8,18 @@
 
  
 	
-	
+<http pattern="/images/**" security="none"/>
+<http pattern="/css/**" security="none"/>	
 <http  use-expressions="true">
 	<intercept-url pattern="/index*" access="permitAll"/>
 	<intercept-url pattern="/login*" access="permitAll"/>
 	<intercept-url pattern="/logout*" access="permitAll"/>
+	<intercept-url pattern="/logout*" access="permitAll"/>
 	<intercept-url pattern="/accessdenied*" access="permitAll"/>
 	<intercept-url pattern="/**" access= "hasRole('ROLE_USER')"/>
-	<form-login login-page="/login.htm" login-processing-url="/j_spring_security_check.action" default-target-url="/welcome.htm" always-use-default-target="true" authentication-failure-url="/accessdenied.htm"/>
+	<form-login login-page="/login" login-processing-url="/j_spring_security_check.action" 
+		default-target-url="/welcome" always-use-default-target="true" authentication-failure-url="/accessdenied.htm"/>
 	<logout logout-success-url="/logout.htm"/>
-	 
 </http>
 
 <authentication-manager>

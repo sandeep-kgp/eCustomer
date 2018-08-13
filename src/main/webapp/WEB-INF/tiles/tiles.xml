@@ -7,7 +7,6 @@
 	<put-attribute name="header" value="/WEB-INF/jsp/navigation/header.jsp"></put-attribute>
 	<put-attribute name="footer" value="/WEB-INF/jsp/navigation/footer.jsp"></put-attribute>
 </definition>
-
  
 <definition name="index" extends="base.eCustomerService.definition">
 	<put-attribute name="title" value="Welcome to Customer Service Tracking System"></put-attribute>
