@@ -5,13 +5,13 @@
 <%@ include file="../include/taglib.jsp"%>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" type="text/css" />
-	<link href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet" type="text/css" />		
-	<link href="${pageContext.request.contextPath}/css/button.css" rel="stylesheet" type="text/css" />
-	<link href="${pageContext.request.contextPath}/css/general.css" rel="stylesheet" type="text/css" />
-	<link href="${pageContext.request.contextPath}/css/lightbox.css" rel="stylesheet" type="text/css" />
-	<link href="${pageContext.request.contextPath}/css/calendar.css" rel="stylesheet" type="text/css" />		
-	<link href="${pageContext.request.contextPath}/css/autocomplete.css" rel="stylesheet" type="text/css" />
+	<link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" type="text/css" />
+	<link href="${pageContext.request.contextPath}/resources/css/main.css" rel="stylesheet" type="text/css" />		
+	<link href="${pageContext.request.contextPath}/resources/css/button.css" rel="stylesheet" type="text/css" />
+	<link href="${pageContext.request.contextPath}/resources/css/general.css" rel="stylesheet" type="text/css" />
+	<link href="${pageContext.request.contextPath}/resources/css/lightbox.css" rel="stylesheet" type="text/css" />
+	<link href="${pageContext.request.contextPath}/resources/css/calendar.css" rel="stylesheet" type="text/css" />		
+	<link href="${pageContext.request.contextPath}/resources/css/autocomplete.css" rel="stylesheet" type="text/css" />
 	
 	<title><tiles:insertAttribute name="title" ignore="true" /></title>
 
