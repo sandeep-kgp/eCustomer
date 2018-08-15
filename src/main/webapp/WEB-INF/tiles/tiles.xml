@@ -11,7 +11,7 @@
 <definition name="index" extends="base.eCustomerService.definition">
 	<put-attribute name="title" value="Welcome to Customer Service Tracking System"></put-attribute>
 	<put-attribute name="menu" value="/WEB-INF/jsp/navigation/mainmenu.jsp"></put-attribute>
-	<put-attribute name="body" value="/WEB-INF/jsp/index.jsp"></put-attribute>
+	<put-attribute name="body" value="/index.jsp"></put-attribute>
 </definition>
 
 <definition name="login" extends="base.eCustomerService.definition">

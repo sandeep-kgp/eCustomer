@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -19,20 +20,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Autowired
     private CustomAuthenticationProvider authProvider;
 
-//	@Autowired
-//	public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
-////		auth.userDetailsService(userDetailsService);
-//		auth.authenticationProvider(authProvider);
-//	}
-
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests()
+		http.csrf().disable().authorizeRequests()
 			.antMatchers("/welcome*").authenticated()
 			.and().formLogin().loginPage("/login").usernameParameter("username").passwordParameter("password")
 			.loginProcessingUrl("/login").defaultSuccessUrl("/welcome", true).successHandler(authSuccessHandler()).permitAll()
-			.and().logout().invalidateHttpSession(true).logoutUrl("/logout").logoutSuccessUrl("/logout-success").permitAll()
-			.and().csrf().and().exceptionHandling().accessDeniedPage("/accessdenied");
+			.and().logout().logoutUrl("/logout")
+			.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).clearAuthentication(true).invalidateHttpSession(true)
+			.logoutSuccessUrl("/logout-success").permitAll()
+			.and().exceptionHandling().accessDeniedPage("/accessdenied");
 	}
 
 	@Bean
@@ -45,12 +42,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         auth.authenticationProvider(authProvider);
     }
 
-//	@Bean
-//	public PersistentTokenBasedRememberMeServices getPersistentTokenBasedRememberMeServices() {
-//		PersistentTokenBasedRememberMeServices tokenBasedservice = new PersistentTokenBasedRememberMeServices(
-//				"remember-me", userDetailsService, tokenRepository);
-//		return tokenBasedservice;
-//	}
 	@Bean
 	UrlAuthenticationSuccessHandler authSuccessHandler(){
 		UrlAuthenticationSuccessHandler handler = new UrlAuthenticationSuccessHandler();
