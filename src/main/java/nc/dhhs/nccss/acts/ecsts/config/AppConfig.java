@@ -1,5 +1,7 @@
 package nc.dhhs.nccss.acts.ecsts.config;
 
+import javax.sql.DataSource;
+
 import org.apache.log4j.Logger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -11,6 +13,8 @@ import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
+
+import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 @Configuration
 @EnableWebMvc
@@ -53,5 +57,15 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 	@Override
 	public void configurePathMatch(PathMatchConfigurer matcher) {
 		matcher.setUseRegisteredSuffixPatternMatch(true);
+	}
+	
+    @Bean
+	public DataSource getMySQLDataSource() {
+		MysqlDataSource mysqlDS = null;
+		mysqlDS = new MysqlDataSource();
+		mysqlDS.setURL("jdbc:mysql://localhost:3306/test");
+		mysqlDS.setUser("sandeep");
+		mysqlDS.setPassword("sandeep");
+		return mysqlDS;
 	}
 }
